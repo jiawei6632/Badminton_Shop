@@ -50,12 +50,31 @@
     background-color: #c1121f;
 }
 
-.category-filter select {
+.filter-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.category-filter, .brand-filter {
+    flex: 1;
+}
+
+.category-filter select, 
+.brand-filter select {
+    width: 150px;
     padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.product-brand {
+    display: block;
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
 }
 
 .products-grid {
@@ -174,4 +193,9 @@
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
+
+    .filter-group {
+        flex-direction: column;
+    }
+
 }

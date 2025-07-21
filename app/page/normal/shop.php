@@ -22,25 +22,36 @@
                 <input type="text" placeholder="Search products..." id="searchInput">
                 <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
             </div>
-            <div class="category-filter">
-                <select id="categorySelect" onchange="filterProducts()">
-                    <option value="all">All Categories</option>
-                    <option value="shuttlecock">Shuttlecocks</option>
-                    <option value="racket">Rackets</option>
-                    <option value="shoes">Shoes</option>
-                    <option value="apparel">Apparel</option>
-                    <option value="accessories">Accessories</option>
-                </select>
+            <div class="filter-group">
+                <div class="category-filter">
+                    <select id="categorySelect" onchange="filterProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="shuttlecock">Shuttlecocks</option>
+                        <option value="racket">Rackets</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="apparel">Apparel</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="brand-filter">
+                    <select id="brandSelect" onchange="filterProducts()">
+                        <option value="all">All Brands</option>
+                        <option value="yonex">Yonex</option>
+                        <option value="lining">Li-Ning</option>
+                        <option value="victor">Victor</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="products-grid">
         <!-- Product 1 - Shuttlecock -->
-        <div class="product-card" data-category="shuttlecock">
+        <div class="product-card" data-category="shuttlecock" data-brand="yonex">
             <div class="product-badge">Best Seller</div>
             <img src="../images/products/shuttlecock-yonex.jpg" alt="Yonex Aerosensa 30 Shuttlecock">
             <div class="product-info">
+                <span class="product-brand">Yonex</span>
                 <span class="product-category">Shuttlecock</span>
                 <h3>Yonex Aerosensa 30</h3>
                 <div class="product-rating">
@@ -60,9 +71,10 @@
         </div>
 
         <!-- Product 2 - Racket -->
-        <div class="product-card" data-category="racket">
+        <div class="product-card" data-category="racket" data-brand="yonex">
             <img src="../images/products/racket-voltric.jpg" alt="Yonex Voltric Z-Force II">
             <div class="product-info">
+                <span class="product-brand">Yonex</span>
                 <span class="product-category">Racket</span>
                 <h3>Yonex Voltric Z-Force II</h3>
                 <div class="product-rating">
@@ -81,10 +93,11 @@
         </div>
 
         <!-- Product 3 - Shoes -->
-        <div class="product-card" data-category="shoes">
+        <div class="product-card" data-category="shoes" data-brand="yonex">
             <div class="product-badge">New</div>
             <img src="../images/products/shoes-65z2.jpg" alt="Yonex Power Cushion 65Z2">
             <div class="product-info">
+                <span class="product-brand">Yonex</span>
                 <span class="product-category">Shoes</span>
                 <h3>Power Cushion 65Z2</h3>
                 <div class="product-rating">
@@ -104,9 +117,10 @@
         </div>
 
         <!-- Product 4 - Apparel -->
-        <div class="product-card" data-category="apparel">
+        <div class="product-card" data-category="apparel" data-brand="lining">
             <img src="../images/products/jersey-lining.jpg" alt="Li-Ning Badminton Jersey">
             <div class="product-info">
+                <span class="product-brand">Li-Ning</span>
                 <span class="product-category">Apparel</span>
                 <h3>Li-Ning Pro Jersey</h3>
                 <div class="product-rating">
@@ -125,9 +139,10 @@
         </div>
 
         <!-- Product 5 - Accessories -->
-        <div class="product-card" data-category="accessories">
+        <div class="product-card" data-category="accessories" data-brand="yonex">
             <img src="../images/products/grip-yonex.jpg" alt="Yonex Super Grap">
             <div class="product-info">
+                <span class="product-brand">Yonex</span>
                 <span class="product-category">Accessories</span>
                 <h3>Yonex Super Grap</h3>
                 <div class="product-rating">
@@ -146,9 +161,10 @@
         </div>
 
         <!-- Product 6 - Shuttlecock -->
-        <div class="product-card" data-category="shuttlecock">
+        <div class="product-card" data-category="shuttlecock" data-brand="lining">
             <img src="../images/products/shuttlecock-lining.jpg" alt="Li-Ning A+60 Shuttlecock">
             <div class="product-info">
+                <span class="product-brand">Li-Ning</span>
                 <span class="product-category">Shuttlecock</span>
                 <h3>Li-Ning A+60</h3>
                 <div class="product-rating">
@@ -165,6 +181,28 @@
                 <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
+        
+        <!-- Product 7 - Racket (Victor) -->
+        <div class="product-card" data-category="racket" data-brand="victor">
+            <img src="../images/products/racket-victor.jpg" alt="Victor Thruster K Falcon">
+            <div class="product-info">
+                <span class="product-brand">Victor</span>
+                <span class="product-category">Racket</span>
+                <h3>Thruster K Falcon</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(42)</span>
+                </div>
+                <div class="product-price">
+                    <span class="current-price">$229.99</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
     </div>
 </div>
 </div>
@@ -172,10 +210,14 @@
 <script>
 function filterProducts() {
     const category = document.getElementById('categorySelect').value;
+    const brand = document.getElementById('brandSelect').value;
     const products = document.querySelectorAll('.product-card');
     
     products.forEach(product => {
-        if (category === 'all' || product.dataset.category === category) {
+        const showCategory = category === 'all' || product.dataset.category === category;
+        const showBrand = brand === 'all' || product.dataset.brand === brand;
+        
+        if (showCategory && showBrand) {
             product.style.display = 'block';
         } else {
             product.style.display = 'none';

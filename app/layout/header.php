@@ -23,8 +23,8 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="../../../app/page/normal/shop.php">Shop</a></li>
-                            <li><a href="../../../app/page/normal/about_us.php">About</a></li>
-                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="../../../app/page/normal/about.php">About</a></li>
+                            <li><a href="../../../app/page/normal/contact.php">Contact</a></li>
                         </ul>
                     </nav>
                     
@@ -33,7 +33,7 @@
                             <input type="text" placeholder="Search products...">
                             <button><i class="fas fa-search"></i></button>
                         </div>
-                        <a href="account.php" class="user-icon">
+                        <a href="../../../app/page/normal/user.php" class="user-icon">
                             <i class="fas fa-user"></i>
                         </a>
                         <a href="cart.php" class="cart-icon">

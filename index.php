@@ -138,7 +138,7 @@
         <section class="hero">
             <h2>Premium Badminton Equipment</h2>
             <p>Shop the latest rackets, shuttles, and apparel from top brands like Yonex, Victor, and Li-Ning</p>
-            <a href="shop.php" class="btn">Shop Now</a>
+            <a href="../../../app/page/normal/shop.php" class="btn">Shop Now</a>
         </section>
         
         <!-- Featured Products -->
